@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+html,body,h1,h2,h3,h4 {
+font-family:"Lato", sans-serif
+}
+.mySlides {
+    display:none
+}
+
+.w3-tag, .fa {
+    cursor:pointer
+}
+
+.w3-tag {
+    height:15px;
+    width:15px;
+    padding:0;
+    margin-top:6px
+}
+
+header h1{
+    display: inline-block;
+}
+.img-header{
+    display: inline-block;
+}
+.img-header img{
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+}
