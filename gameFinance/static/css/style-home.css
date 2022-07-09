@@ -29,3 +29,26 @@ header h1{
     width: 60px;
     border-radius: 100%;
 }
+
+.header-nav a b{
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+a b:hover{
+    background-color: blue;
+    padding:  5px;
+    border-radius: 5px;
+}
+
+.imagem-carrossel{
+    object-fit: cover;
+    object-position: 0 20%;
+    height: 400px;
+}
+
+.subtitle-slide{
+    background-color: black;
+    padding: 16px;
+    border-radius: 10px;
+}

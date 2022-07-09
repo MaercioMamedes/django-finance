@@ -1,57 +1,82 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <title>Document</title>
+  <link rel="shortcut icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style-home.css' %}">
+  <title>Jogo da Bolsa</title>
 </head>
+
 <body>
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <header class="header-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
       <a class="navbar-brand" href="#">
         <img src="{% static 'images/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
         <b>Jogo da Bolsa</b>
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="{% url 'index' %}">Home <span class="sr-only">(Página atual)</span></a>
-          <a class="nav-item nav-link active" href="#">O Jogo</a>
-          <a class="nav-item nav-link active" href="#">Cadastro</a>
-          <a class="nav-item nav-link active" href="{% url 'contact' %}">Contato</a>
-          <a class="nav-item nav-link active" href="#">Jogadores</a>
-          <a class="nav-item nav-link active" href="#">Login</a>
+        <div class="navbar-nav" id="nav-main">
+          <a class="nav-item nav-link active" href="{% url 'index' %}"><b>Home</b> <span class="sr-only">(Página
+              atual)</span></a>
+          <a class="nav-item nav-link active" href="#"><b>O Jogo</b></a>
+          <a class="nav-item nav-link active" href="{% url 'register' %}"><b>Cadastro</b></a>
+          <a class="nav-item nav-link active" href="{% url 'contact' %}"><b>Contato</b></a>
+          <a class="nav-item nav-link active" href="#"><b>Jogadores</b></a>
+          <a class="nav-item nav-link active" href="#"><b>Login</b></a>
         </div>
       </div>
     </nav>
   </header>
 
-  {% block content %} 
-
-  {% endblock %}
-  
 
 
-    <!-- Footer -->
-<footer class="footer navbar-fixed-bottom bg-primary">
+  <main id="principal" style="margin-top:50px ; min-height: 800px;">
+    {% if messages %}
+      {% for message in messages %}
+    <div class="alert alert-{{message.tags}}"  role="alert">
+          {{ message }}
+    </div>
+      {% endfor %}
+    {% endif %}
+    
+    {% block content %}
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
+    {% endblock %}
+  </main>
 
-</footer>
-<!-- Footer -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Footer -->
+  <footer class="footer   bg-primary fixed-bottom">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
 </body>
+
 </html>
