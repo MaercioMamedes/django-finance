@@ -1,5 +1,3 @@
-import email
-from hashlib import new
 from django.db import models
 from django.contrib.auth.models import  User
 
