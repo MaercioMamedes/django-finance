@@ -18,7 +18,6 @@ font-family:"Lato", sans-serif
     margin-top:6px
 }
 
-
 header h1{
     display: inline-block;
 }
@@ -31,14 +30,25 @@ header h1{
     border-radius: 100%;
 }
 
-.header-nav a{
+.header-nav a b{
     color: whitesmoke;
     font-weight: bold;
 }
 
-main#principal{
+a b:hover{
+    background-color: blue;
+    padding:  5px;
+    border-radius: 5px;
+}
 
-    position: relative;
-    display: inline-block;
-    margin: 400px;
+.imagem-carrossel{
+    object-fit: cover;
+    object-position: 0 20%;
+    height: 400px;
+}
+
+.subtitle-slide{
+    background-color: black;
+    padding: 16px;
+    border-radius: 10px;
 }

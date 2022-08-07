@@ -1,5 +1,7 @@
 {% extends 'templateBase.html' %}
-{% load static %} 
+{% load static %}
+{% load widget_tweaks %}
+
 {% block content %} 
 
 
@@ -19,46 +21,20 @@
                 <div class="contact-form-area">
                     <form action="{% url 'register' %}" method="POST">
                         {% csrf_token %}
-                        <div class="row">
-                            <div class="col-12 col-lg-12">
-                                <label for="nome_receita">Nome completo</label>
-                                <input type="text" class="form-control" name="fullname" placeholder="Ex.:Guilherme Lima" required>
-                            </div>
+                        
+                        <section class=" container col-8">
 
-                            <div class="col-12 col-lg-12">
-                                <label for="user_name">usuário de login</label>
-                                <input type="text" class="form-control" name="user_name" placeholder="Ex.:Guilherme Lima" required>
+                            {% for field in formUser.visible_fields %}
+                            <div class="form-group">
+                                <label for="{{field.id_for_label}}">{{field.label}}</label>
+                                {{ field|add_class:'form-control' }}
                             </div>
-
-                            <div class="col-12 col-lg-12">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Ex.: guilherme@receitas.com" required>
-                            </div>
-
-                            <div class="col-12 col-lg-12">
-                                <label for="email_confirm">Confirme seu Email</label>
-                                <input type="email" class="form-control" name="email_confirm" placeholder="Ex.: guilherme@receitas.com" required>
-                            </div>
-
-                            <div class="col-12 col-lg-12">
-                                <label for="cell">Celular</label>
-                                <input type="number" name="cell" class="form-control bfh-phone"  placeholder="+55 (DDD) XXXX-XXXX" style="width: 250px;" required>
-                            </div>
-
-                            <div class="col-12 col-lg-6">
-                                <label for="password">Senha</label>
-                                <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <label for="password_confirm">Confirmação de senha</label>
-                                <input type="password" class="form-control" name="password_confirm" placeholder="Digite sua senha mais uma vez" required>
-                            </div>
-
+                            {% endfor %}
 
                             <div class="col-12 text-center">
                                 <button class="btn btn-success" type="submit" style="margin-top: 20px;">Criar sua conta</button>
                             </div>
-                        </div>
+                        </section>
                     </form>
                 </div>
             </div>

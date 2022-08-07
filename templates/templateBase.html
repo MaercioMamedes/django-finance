@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,9 +9,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/style-home.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/style-home.css' %}">
+
   <title>Jogo da Bolsa</title>
 </head>
 
@@ -42,7 +45,7 @@
 
           {% else %} 
 
-            <a class="nav-item nav-link active" href="{% url 'register' %}"><b>Cadastro</b></a>
+            <a class="nav-item nav-link active" href="{% url 'users:register' %}"><b>Cadastro</b></a>
             <a class="nav-item nav-link active" href="{% url 'core:login' %}"><b>Login</b></a>
           {% endif %}
 
@@ -68,7 +71,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer   bg-primary fixed-bottom">
+  <footer class="footer   bg-primary">
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:

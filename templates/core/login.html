@@ -20,15 +20,7 @@
                         {% csrf_token %}
 
                         <div class="row">
-                            <h3>Escolha como deseja fazer o login</h3>
-                            <div id="selector-login" class="col-12 col-lg-12">
-
-                                <label for="email">Por email</label>
-                                <input type="radio" name="type_login"id="email" value="email" onclick="toEmail()">
-
-                                <label for="username">Por usuário</label>
-                                <input type="radio" name="type_login" id="username" value="username" onclick="toUserName()" checked>
-                            </div>    
+                            <h3>Escolha como deseja fazer o login</h3>   
                         </div>
 
                         <div class="row">
@@ -55,7 +47,7 @@
 <script>
 function exibirCriarConta()
 {
-     location.href = "{% url 'register' %}";
+     location.href = "{% url 'appUsers:register' %}";
 } 
 </script>
 

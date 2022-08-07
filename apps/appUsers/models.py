@@ -11,17 +11,3 @@ class UserApp(models.Model):
 
     def __str__(self) -> str:
         return self.full_name
-
-
-def factor_user(data_user):
-
-    new_user = User.objects.create_user(username=data_user['user_name'],
-                                        password=data_user['password'],
-                                        email=data_user['email'],
-                                        )
-
-    new_user_app = UserApp(user=new_user,
-                           full_name=data_user['fullname'],
-                           cell=data_user['cell'])
-
-    new_user_app.save()
