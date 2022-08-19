@@ -1,5 +1,7 @@
 {% extends 'templateBase.html' %}
 {% load static %}
+{% load widget_tweaks %}
+
 {% block content %}
 
 
@@ -18,25 +20,20 @@
                 <div class="contact-form-area">
                     <form action="{% url 'core:login' %}" method="POST">
                         {% csrf_token %}
+                        
+                        <section class=" container col-8">
 
-                        <div class="row">
-                            <h3>Escolha como deseja fazer o login</h3>   
-                        </div>
+                            {% for field in login_form.visible_fields %}
+                            <div class="form-group">
+                                <label for="{{field.id_for_label}}">{{field.label}}</label>
+                                {% render_field field class="form-control" placeholder='Digite aqui' %}
+                            </div>
+                            {% endfor %}
 
-                        <div class="row">
-                            <div class="col-12 col-lg-12">
-                            <label  for="user_login"><b id="label-login">Usuário</b></label>
-                                <input type="text" id="user_login" class="form-control" name="username" placeholder="Entre com o usuário cadastrado">
-                            </div>
-                                <div class="col-12 col-lg-12">
-                                <label for="senha"><b>Senha</b></label>
-                                <input id="senha" type="password" class="form-control" name="password" placeholder="Digite aqui sua senha">
-                            </div>
                             <div class="col-12 text-center">
-                                <button class="btn btn-success" type="submit">Acessar sua conta</button>
-                                <button type="button" class="btn btn-primary" onclick="exibirCriarConta()">Ainda não tem conta? Clique aqui</button>
+                                <button class="btn btn-success" type="submit" style="margin-top: 20px;">Login</button>
                             </div>
-                        </div>
+                        </section>
                     </form>
                 </div>
             </div>
@@ -47,7 +44,7 @@
 <script>
 function exibirCriarConta()
 {
-     location.href = "{% url 'appUsers:register' %}";
+     location.href = "{% url 'register' %}";
 } 
 </script>
 

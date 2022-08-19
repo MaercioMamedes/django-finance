@@ -10,9 +10,7 @@ def register(request):
 
     if request.method == 'POST':
         form = UserForms(request.POST)
-
-        print(form.data.get('username'))
-      
+ 
         if form.is_valid():
             
             new_user = User.objects.create_user(username=form.data.get('username'),
