@@ -34,12 +34,3 @@ class UserForms(Form):
 
         return self.cleaned_data
 
-
-
-
-class UserAppForms(ModelForm):
-    class Meta:
-        model = UserApp
-        fields = ['full_name', 'cell']
-
-

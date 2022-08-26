@@ -1,0 +1,27 @@
+{% extends 'templateBase.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="container">
+    <h1>Jogadores Cadastrados</h1>
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nome completo</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for element in users %}
+                <tr>
+                    <td>{{ element }}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+</section>
+
+{% endblock %} 

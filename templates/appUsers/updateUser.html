@@ -1,0 +1,44 @@
+{% extends 'templateBase.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %} 
+
+<!-- ##### Contact Form Area Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2>Criar conta</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
+                        
+                        <section class=" container col-8">
+
+                            {% for field in user_form.visible_fields %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                                {{ field|add_class:'form-control' }}
+                            </div>
+                            {% endfor %}
+
+                            <div class="col-12 text-center">
+                                <button class="btn btn-success" type="submit" style="margin-top: 20px;">Criar sua conta</button>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %} 

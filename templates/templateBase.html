@@ -25,6 +25,25 @@
         <b>Jogo da Bolsa</b>
       </a>
 
+      <!-- Breaking News -->
+      <div class="col-12 col-sm-6">
+        <div class="breaking-news">
+          <div id="breakingNewsTicker" class="ticker">
+            <ul style="list-style: none;">
+              {% if not user.is_anonymous %}
+
+              <li ><a style="color: white;font-weight: bold;" href="{% url 'update_user_start' %}" >Usuário: <strong >{{ user }}</strong></a></li>
+
+              {% else %}
+
+              <li><a href="" ><strong strong style="color: white;font-weight: bold;">Nenhum Usuário logado</strong></a></li>
+
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -33,20 +52,20 @@
         <div class="navbar-nav" id="nav-main">
           <a class="nav-item nav-link active" href="{% url 'core:index' %}"><b>Home</b> <span class="sr-only">(Página
               atual)</span></a>
-          <a class="nav-item nav-link active" href="#"><b>O Jogo</b></a>
+          <a class="nav-item nav-link active" href="{% url 'core:about_game' %}"><b>O Jogo</b></a>
           <a class="nav-item nav-link active" href="{% url 'core:contact' %}"><b>Contato</b></a>
-          <a class="nav-item nav-link active" href="#"><b>Jogadores</b></a>
+          <a class="nav-item nav-link active" href="{% url 'core:game_players' %}"><b>Jogadores</b></a>
           {% if not user.is_anonymous %}
-            <a class="nav-item nav-link active" href="{% url 'core:logout' %}"><b>Logout</b></a>
-            {% if user.is_superuser %}
-              <a class="nav-item nav-link active" href="{% url 'admin:index' %}"><b>admin</b></a>
+          <a class="nav-item nav-link active" href="{% url 'core:logout' %}"><b>Logout</b></a>
+          {% if user.is_superuser %}
+          <a class="nav-item nav-link active" href="{% url 'admin:index' %}"><b>admin</b></a>
 
-            {% endif %}
+          {% endif %}
 
-          {% else %} 
+          {% else %}
 
-            <a class="nav-item nav-link active" href="{% url 'register' %}"><b>Cadastro</b></a>
-            <a class="nav-item nav-link active" href="{% url 'core:login' %}"><b>Login</b></a>
+          <a class="nav-item nav-link active" href="{% url 'register' %}"><b>Cadastro</b></a>
+          <a class="nav-item nav-link active" href="{% url 'core:login' %}"><b>Login</b></a>
           {% endif %}
 
         </div>
@@ -58,13 +77,13 @@
 
   <main id="principal" style="margin-top:50px ; min-height: 800px;">
     {% if messages %}
-      {% for message in messages %}
-    <div class="alert alert-{{message.tags}}"  role="alert">
-          {{ message }}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+      {{ message }}
     </div>
-      {% endfor %}
+    {% endfor %}
     {% endif %}
-    
+
     {% block content %}
 
     {% endblock %}
