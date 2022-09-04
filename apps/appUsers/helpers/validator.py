@@ -2,6 +2,8 @@ from unicodedata import numeric
 from django.contrib.auth.models import  User
 
 
+# TESTAR ESSES VALIDADORES
+
 """Verifica campos em branco"""
 
 def check_empty(field, list_errors):
