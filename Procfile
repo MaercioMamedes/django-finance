@@ -1,0 +1,1 @@
+web: gunicorn django-finance.wsgi --log-file -
