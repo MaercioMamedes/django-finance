@@ -1,1 +1,1 @@
-web: gunicorn game-finance.wsgi --log-file -
+web: gunicorn gamefinance.wsgi --log-file -
