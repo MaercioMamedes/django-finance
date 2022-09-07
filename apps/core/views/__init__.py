@@ -5,4 +5,5 @@ from .login import *
 from .logout import *
 from .aboutGame import *
 from .gamePlayers import *
+from .httpErrors import *
 
