@@ -1,1 +1,1 @@
-web: gunicorn django-finance.wsgi --log-file -
+web: gunicorn game-finance.wsgi --log-file -
