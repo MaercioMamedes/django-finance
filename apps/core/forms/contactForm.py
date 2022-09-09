@@ -7,7 +7,6 @@ class ContactForm(ModelForm):
         model = MessageContact
         fields = '__all__'
 
-
     def clean(self):
         
         return self.cleaned_data
