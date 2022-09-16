@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('users/', include('appUsers.urls')),
+    path('wallet/',include('StockExchange.urls')),
 ]
 
 handler404 = 'core.views.error404'

@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fuvlz&e98-0w_13usa56+$l-+darpt#@sc+tiqv=$7fo=vdqdi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'core',
     'appUsers',
+    'StockExchange',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

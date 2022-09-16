@@ -1,0 +1,50 @@
+{% extends 'templateBase.html' %}
+{% load static %}
+
+{% block content %}
+
+<main style="text-align: center;">
+    <h1>Painel de controle</h1>
+    <section class="container">
+
+
+        <form action="{% url 'create_wallet' %}" method="POST">
+            {% csrf_token %}
+
+            <label for="ticker">Encontre seu ativo</label>
+            <input type="text" name="ticker" id="ticker">
+
+            <button type="submit">buscar</button>
+        </form>
+
+    </section>
+
+    <section>
+        <h3>Minha Carteira</h3>
+    </section>
+
+    {% if tickers %}
+    <h1>Lista de Papéis</h1>
+
+    <section class="d-flex align-content-start flex-wrap">
+
+
+        {% for ticker in tickers %}
+        <div style="border: solid; margin: 8px;width: 300px;">
+            <h3 class="p-2">{{ ticker.name }}</h3>
+            <h4 class="p-2">{{ ticker.ticker }}</h4>
+
+            <figure class="p-2">
+                <img src="{{ ticker.url_image }}" alt="" srcset="">
+                <figcaption>valor da cota: {{ ticker.price }}</figcaption>
+                <button>Adcionar</button>
+            </figure>
+        </div>
+        {% endfor %}
+    </section>
+
+</main>
+
+{% endif %}
+
+{% endblock %}
