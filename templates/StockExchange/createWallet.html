@@ -3,7 +3,23 @@
 
 {% block content %}
 
-<main style="text-align: center;">
+<div id="mdb-preloader" class="flex-center">
+    <div class="preloader-wrapper active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<main style="text-align: center; margin-top: 100px;">
     <h1>Painel de controle</h1>
     <section class="container">
 
@@ -14,13 +30,40 @@
             <label for="ticker">Encontre seu ativo</label>
             <input type="text" name="ticker" id="ticker">
 
-            <button type="submit">buscar</button>
+              <button class="btn btn-primary" type="submit" >
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                adicionar
+              </button>
         </form>
 
     </section>
 
-    <section>
-        <h3>Minha Carteira</h3>
+    <h3>Minha Carteira</h3>
+    <section class="d-flex align-content-start flex-wrap">
+        
+
+        <div>
+            {% if wallet %}
+            {% for ticker in wallet %}
+            <div style="border: solid; margin: 8px;width: 300px;">
+                <h3 class="p-2">{{ ticker.name }}</h3>
+                <h4 class="p-2">{{ ticker.ticker }}</h4>
+
+                <figure class="p-2">
+                    <img src="{{ ticker.url_image }}" alt="" srcset="">
+                    <figcaption>valor da cota: {{ ticker.price }}</figcaption>
+                    <a href="{% url 'delete_asset' ticker.id %}" type="button" class="btn btn-danger">EXCLUIR</a>
+                </figure>
+            </div>
+            {% endfor %}
+
+            {% else %}
+            <div>
+                <h3>Sua carteira ainda não tem ativos</h3>
+            </div>
+            {% endif%}
+
+        </div>
     </section>
 
     {% if tickers %}

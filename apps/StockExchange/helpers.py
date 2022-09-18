@@ -1,4 +1,5 @@
 from .models import Asset
+from django.http import Http404
 import yfinance as yf
 from time import sleep
 from datetime import datetime
@@ -16,7 +17,7 @@ def factor_asset(args):
 
         return Asset.objects.create(name=name, ticker=ticker, price=price, url_image=url_image)
     else:
-        return print(f'Papel {args} não existe')
+        return None
 
 
 def download_br():

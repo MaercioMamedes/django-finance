@@ -52,3 +52,7 @@ a b:hover{
     padding: 16px;
     border-radius: 10px;
 }
+
+#nav-main{
+    margin-right: 8px;
+}

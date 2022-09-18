@@ -3,6 +3,7 @@ from django.contrib import messages
 from appUsers.forms import  UserForms
 from django.contrib.auth.models import  User
 from appUsers.models import UserApp
+from StockExchange.models import Wallet
 
 
 
@@ -25,7 +26,8 @@ def register(request):
                            cell=form.data.get('cell'),
             )
 
-
+            wallet = Wallet.objects.create(user=new_user)
+            
         return redirect('core:login')
 
 
