@@ -34,8 +34,7 @@
             <ul style="list-style: none;">
               {% if not user.is_anonymous %}
 
-              <li><a style="color: white;font-weight: bold;" href="{% url 'update_user_start' %}">Usuário: <strong>{{
-                    user }}</strong></a></li>
+              <li><a style="color: white;font-weight: bold;" href="{% url 'update_user_start' %}">Usuário: <strong>{{ user }}</strong></a></li>
 
               {% else %}
 
@@ -64,7 +63,7 @@
           <a class="nav-item nav-link active" href="{% url 'core:logout' %}"><b>Logout</b></a>
           {% if user.is_superuser %}
           <a class="nav-item nav-link active" href="{% url 'admin:index' %}"><b>admin</b></a>
-
+          
           {% endif %}
 
           {% else %}

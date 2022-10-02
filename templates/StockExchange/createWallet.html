@@ -3,21 +3,6 @@
 
 {% block content %}
 
-<div id="mdb-preloader" class="flex-center">
-    <div class="preloader-wrapper active">
-      <div class="spinner-layer spinner-blue-only">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 <main style="text-align: center; margin-top: 100px;">
     <h1>Painel de controle</h1>
@@ -28,7 +13,7 @@
             {% csrf_token %}
 
             <label for="ticker">Encontre seu ativo</label>
-            <input type="text" name="ticker" id="ticker">
+            <input type="text" name="ticker" id="ticker" required>
 
               <button class="btn btn-primary" type="submit" >
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

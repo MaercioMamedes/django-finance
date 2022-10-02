@@ -10,6 +10,7 @@ def delete_asset(request, id):
 
         wallet = get_object_or_404(Wallet, user=request.user.id)
         wallet.assets_wallet.remove(asset)
+        messages.info(request, f'O papel {asset.ticker} excluído com sucesso')
     except:
 
         messages.error(request, 'Operação não permitida')

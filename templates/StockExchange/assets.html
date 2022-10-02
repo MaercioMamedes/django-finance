@@ -1,0 +1,38 @@
+{% extends 'templateBase.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<main style="text-align: center; margin-top: 100px;">
+
+
+
+    <div>
+        {% if assets %}
+        {% for ticker in assets %}
+        <div style="border: solid; margin: 8px;width: 300px;">
+            <h3 class="p-2">{{ ticker.name }}</h3>
+            <h4 class="p-2">{{ ticker.ticker }}</h4>
+
+            <figure class="p-2">
+                <img src="{{ ticker.url_image }}" alt="" srcset="">
+                <figcaption>valor da cota: {{ ticker.price }}</figcaption>
+                <a href="{% url 'delete_asset' ticker.id %}" type="button" class="btn btn-danger">EXCLUIR</a>
+            </figure>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <div>
+            <h3>Sua carteira ainda não tem ativos</h3>
+        </div>
+        {% endif%}
+
+    </div>
+
+
+
+</main>
+
+{% endblock %}

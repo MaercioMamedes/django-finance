@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import  User
 from django.core.exceptions import ValidationError
+import yfinance as yf
 
 
 class Asset(models.Model):
@@ -16,6 +17,8 @@ class Asset(models.Model):
 class Wallet(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     assets_wallet = models.ManyToManyField(Asset)
+    profit = models.DecimalField('Rentabilidade', max_digits=10, decimal_places=2, default=0)
+    
 
     def clean(self):
         if len(self.assets_wallet.all()) == 5:
@@ -24,4 +27,11 @@ class Wallet(models.Model):
         else:
             return True
     
-            
+    def update_profit(self, date_start, date_end):
+        assets = self.assets_wallet.values()
+
+        for element in assets:
+            data_b3 = yf.download(element['ticker'], start=date_start, end=date_end, interval='1d')
+            print(data_b3)
+
+    
