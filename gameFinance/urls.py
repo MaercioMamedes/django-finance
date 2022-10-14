@@ -19,10 +19,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),
+    path('', include('apps.core.urls')),
     path('users/', include('appUsers.urls')),
-    path('wallet/',include('StockExchange.urls')),
+    path('wallet/', include('apps.StockExchange.urls')),
 ]
 
-handler404 = 'core.views.error404'
+handler404 = 'apps.core.views.error404'
 

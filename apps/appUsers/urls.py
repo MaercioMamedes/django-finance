@@ -1,5 +1,5 @@
 from django.urls import path
-from appUsers.views import register, update_user_start, update_user_end
+from apps.appUsers.views import register, update_user_start, update_user_end
 
 
 urlpatterns = [

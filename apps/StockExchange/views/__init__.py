@@ -1,3 +1,3 @@
-from .createWallet import *
-from .delete_asset import *
-from .assets_list import *
+from apps.StockExchange.views.createWallet import *
+from apps.StockExchange.views.delete_asset import *
+from apps.StockExchange.views.assets_list import *

@@ -1,7 +1,7 @@
-from django.forms import CharField, EmailField, ModelForm, PasswordInput,Form
-from appUsers.models import UserApp
-from django.contrib.auth.models import  User
-from appUsers.helpers import check_empty, check_field_equal
+from django.forms import CharField, EmailField, ModelForm, PasswordInput, Form
+from apps.appUsers.models import UserApp
+from django.contrib.auth.models import User
+from apps.appUsers.helpers import check_empty, check_field_equal
 
 
 class UserForms(Form):
@@ -12,17 +12,15 @@ class UserForms(Form):
     password = CharField(label='senha', widget=PasswordInput())
     password_confirm = CharField(label='confirme sua senha', widget=PasswordInput())
 
-
-
     def clean(self):
-        
+
         username = self.cleaned_data.get('username')
         email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
         password_confirm = self.cleaned_data.get('password_confirm')
 
         list_errors = {}
-      
+
         check_empty(username, list_errors)
         check_empty(email, list_errors)
         check_field_equal(password, password_confirm, list_errors)
@@ -33,4 +31,3 @@ class UserForms(Form):
                 self.add_error(error, message_error)
 
         return self.cleaned_data
-

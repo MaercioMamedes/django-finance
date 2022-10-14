@@ -1,6 +1,6 @@
 from pydoc import render_doc
 from django.shortcuts import render
-from appUsers.models import UserApp
+from apps.appUsers.models import UserApp
 
 
 def game_players(request):

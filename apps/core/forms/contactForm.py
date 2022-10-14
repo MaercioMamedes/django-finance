@@ -1,5 +1,5 @@
-from django.forms import  ModelForm
-from core.models import MessageContact
+from django.forms import ModelForm
+from apps.core.models import MessageContact
 
 
 class ContactForm(ModelForm):
@@ -8,5 +8,4 @@ class ContactForm(ModelForm):
         fields = '__all__'
 
     def clean(self):
-        
         return self.cleaned_data

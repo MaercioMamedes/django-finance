@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from StockExchange.models import Wallet, Asset
-
+from apps.StockExchange.models import Wallet, Asset
 
 
 def assets_list(request):
@@ -9,7 +8,7 @@ def assets_list(request):
     assets = Asset.objects.filter(wallet__in=wallests_list_id).distinct()
 
     context = {
-        'assets' : assets
+        'assets': assets
     }
 
     return render(request, 'StockExchange/assets.html', context)

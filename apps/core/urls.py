@@ -1,8 +1,7 @@
 from django.urls import path
-from core.views import *
+from apps.core.views import index, contact, login, logout, about_game, game_players
 
 
-app_name = 'core'
 urlpatterns = [
     path('', index, name='index'),
     path('contato', contact, name='contact'),

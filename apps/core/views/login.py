@@ -1,7 +1,6 @@
 from django.contrib import auth, messages
 from django.shortcuts import redirect, render
-from core.forms import LoginForm
-
+from apps.core.forms import LoginForm
 
 
 def login(request):
@@ -21,7 +20,7 @@ def login(request):
                 messages.success(request, 'Login realizado com sucesso')
 
                 return redirect('core:index')
-            
+
             else:
                 messages.error(request, 'Login ou senhas inválidos')
 
@@ -33,11 +32,9 @@ def login(request):
 
             return redirect('core:login')
 
-    
+
     else:
 
         login_form = LoginForm()
 
-        return render(request, 'core/login.html', {'login_form' : login_form})
-
-        
+        return render(request, 'core/login.html', {'login_form': login_form})

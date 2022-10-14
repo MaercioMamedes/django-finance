@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-from core.forms import ContactForm
+from apps.core.forms.contactForm import ContactForm
 
 
 def contact(request):
-
     if request.method == 'POST':
 
         form = ContactForm(request.POST)
@@ -11,10 +10,8 @@ def contact(request):
         if form.is_valid():
             form.save()
 
-            return redirect('core:index')
-
+            return redirect('index')
 
     form = ContactForm()
 
-    return render(request, 'core/contact.html', {'form' : form})
-    
+    return render(request, 'core/contact.html', {'form': form})

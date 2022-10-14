@@ -1,11 +1,12 @@
 from gc import get_objects
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
-from StockExchange.models import Wallet, Asset
+from apps.StockExchange.models import Wallet, Asset
+
 
 def delete_asset(request, id):
     asset = get_object_or_404(Asset, id=id)
-    
+
     try:
 
         wallet = get_object_or_404(Wallet, user=request.user.id)
@@ -15,6 +16,4 @@ def delete_asset(request, id):
 
         messages.error(request, 'Operação não permitida')
 
-
     return redirect('create_wallet')
-

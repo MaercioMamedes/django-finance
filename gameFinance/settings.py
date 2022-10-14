@@ -35,9 +35,9 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'widget_tweaks',
-    'core',
-    'appUsers',
-    'StockExchange',
+    'apps.appUsers',
+    'apps.StockExchange',
+    'apps.core',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
